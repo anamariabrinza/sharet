@@ -1,0 +1,29 @@
+= form_for @article do |f|
+  .field
+    = f.label :title
+    %br
+    = f.text_field :title
+  .field
+    = f.label :content
+    %br
+    = f.text_area :content
+  .field
+    = f.label :city
+    %br
+    = f.text_field :city
+  .field
+    = f.label :video
+    %br
+    = f.text_field :video
+  .field
+    = f.label :cover_image
+    %br
+    = f.file_field :cover_image
+
+  %h3 Images
+  #images
+    = f.fields_for :images do |image|
+      = render 'image_fields', f: image
+    .links
+      = link_to_add_association 'add image', f, :images
+  = f.submit

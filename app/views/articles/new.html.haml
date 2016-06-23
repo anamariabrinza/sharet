@@ -1,0 +1,27 @@
+%h1 Create Article
+
+/ = form_for @article do |f|
+/   = f.label :title
+/   = f.text_field :title
+/   %br
+
+/   = f.label :content
+/   = f.text_area :content
+/   %br
+
+/   = f.label :city
+/   = f.text_field :city
+/   %br
+
+/   = f.label :cover_image
+/   = f.file_field :cover_image
+/   %br
+
+/   = f.label :video
+/   = f.text_field :video
+
+/   %br
+
+/   = f.submit
+
+= render partial: "form"

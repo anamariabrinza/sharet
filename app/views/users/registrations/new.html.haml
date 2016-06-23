@@ -1,0 +1,45 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name, required: true
+  .field 
+    = f.label :surname
+    %br
+    = f.text_field :surname, required: true
+  .field
+    = f.label 'Date of birth'
+    %br
+    = f.date_field :dob, :value => Time.now.strftime('%Y-%m-%d')
+  .field
+    = f.label :country
+    %br
+    = f.text_field :country
+  .field
+    = f.label :city
+    %br
+    = f.text_field :hometown
+  .field
+    = f.label :gender
+    %br
+    = f.select :gender, options_for_select(User.genders.keys)
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .actions
+    = f.submit "Sign up"
+= render "users/shared/links"

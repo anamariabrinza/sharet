@@ -1,0 +1,39 @@
+%h1 Wellcome to Dashboard 
+
+%p 
+  = link_to "Edit profile", "/users/edit"
+= image_tag current_user.avatar.url(:profile)
+%p 
+  Name : 
+  = current_user.name 
+%p 
+  Surname : 
+  = current_user.surname
+
+%p
+  Date of birth:
+  = current_user.dob
+%p
+  Adress:
+  = current_user.country
+  ,
+  =current_user.hometown
+%p
+  Gender:
+  = current_user.gender
+%p 
+  Email : 
+  = current_user.email
+%p
+  About :
+  = raw current_user.about
+%p
+  Facebook page
+  = current_user.facebook
+%p
+  Instagram page
+  = current_user.instagram
+
+:javascript
+  CKEDITOR.replace("cke_user_about");
+  

@@ -1,0 +1,8 @@
+.nested-fields
+  .field
+    = f.label :caption
+    %br
+    = f.text_field :caption
+  .field
+    = f.file_field :img
+  = link_to_remove_association "remove image", f

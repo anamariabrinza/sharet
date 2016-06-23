@@ -1,0 +1,41 @@
+%h1 Articles
+
+%hr
+= link_to "Create Articles" , new_article_path
+%hr
+%br
+%br
+
+- @articles.each do |a|
+  %p 
+    Title: 
+    = a.title 
+    %br
+  %p
+    - if a.cover_image.exists?
+      = image_tag a.cover_image
+  %p
+    Content:
+    = a.content
+    %br 
+  %p
+    City:  
+    = a.city
+    %br
+  %p
+    Video:
+    = a.video
+    %br
+  %p 
+    Images
+    - if a.images
+      - a.images.each do |i|
+        - if i.img.exists? 
+          = image_tag i.img
+          = i.caption
+   
+  = link_to "Edit", edit_article_path(a.id)
+  = link_to "Destroy", article_path(a.id), method: :delete , :data => {:confirm => "Are you sure?"}
+
+
+  %hr
